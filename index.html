@@ -1,76 +1,109 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pretyy Finds In | Fashion & Clothing</title>
-<meta name="description" content="Fashion finds for everyday style at Pretyy Finds In.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pretyy Finds In</title>
 <style>
-:root{--green:#315747;--cream:#faf6ef;--ink:#26352d;--muted:#68736c;--line:#e9e2d8}
+:root{--pink:#f7dce7;--deep:#8d345c;--cream:#fffaf7;--ink:#2d2430;--muted:#766b76}
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--cream);color:var(--ink);line-height:1.55}
-header{background:var(--green);color:white;padding:28px 18px 30px;text-align:center}
-h1{font-family:Georgia,serif;font-size:clamp(32px,7vw,48px);margin:0 0 8px}
-header p{font-size:17px;margin:0 auto;max-width:560px}
-nav{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:20px}
-nav a{color:white;text-decoration:none;border:1px solid #ffffff80;border-radius:24px;padding:8px 14px}
-main{max-width:1000px;margin:auto;padding:28px 16px 48px}
-h2{font-family:Georgia,serif;font-size:27px;margin:0 0 16px}
-.intro{text-align:center;margin:8px auto 36px;max-width:650px;color:var(--muted)}
-.product-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
-.card{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 3px 12px #26352d0a}
-.card img{width:100%;height:280px;object-fit:contain;background:#fff;display:block}
-.card-body{padding:16px}
-.card h3{font-size:18px;margin:0 0 8px}
-.card p{color:var(--muted);font-size:14px;margin:0 0 14px}
-.btn{display:block;text-align:center;background:var(--green);color:#fff;text-decoration:none;font-weight:bold;border-radius:10px;padding:12px}
-.note{font-size:12px;color:var(--muted);margin-top:22px}
-footer{background:var(--green);color:#fff;text-align:center;padding:20px;font-size:13px}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--cream);color:var(--ink)}
+header{text-align:center;padding:28px 16px 24px;background:linear-gradient(135deg,#f8e4ec,#fff4ed)}
+header h1{margin:0;color:var(--deep);font-size:clamp(28px,6vw,42px)}
+header p{margin:9px 0 0;color:#5f515b}
+main{max-width:1100px;margin:auto;padding:22px 14px 44px}
+.section-title{text-align:center;margin:8px 0 18px;font-size:23px}
+.category-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.category{border:1px solid #ead6df;background:#fff;border-radius:15px;padding:18px 10px;text-align:center;cursor:pointer;color:var(--ink);font-size:15px;font-weight:700;min-height:96px;box-shadow:0 3px 12px #55223a0b;transition:.15s}
+.category .emoji{display:block;font-size:27px;margin-bottom:8px}
+.category:hover,.category.active{background:var(--pink);border-color:#d8a3ba;transform:translateY(-1px)}
+#products-section{margin-top:34px;scroll-margin-top:12px}
+.products-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.products-heading h2{margin:0;font-size:23px}
+#back-button{border:0;background:#f0e4ea;color:var(--deep);border-radius:20px;padding:9px 14px;font-weight:700;cursor:pointer}
+.product-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:17px}
+.product{background:#fff;border:1px solid #eee1e7;border-radius:15px;overflow:hidden;box-shadow:0 4px 14px #55223a0b}
+.product img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;background:#f6edf1}
+.product-info{padding:12px}
+.product h3{font-size:15px;line-height:1.35;margin:0 0 10px}
+.shop-link{display:block;text-align:center;background:var(--deep);color:#fff;text-decoration:none;padding:10px 8px;border-radius:9px;font-weight:700;font-size:14px}
+.empty{background:#fff;border:1px dashed #d9b8c7;border-radius:14px;padding:24px 16px;text-align:center;color:var(--muted);line-height:1.5;margin-top:16px}
+footer{text-align:center;padding:20px;color:var(--muted);font-size:13px}
+@media(min-width:650px){.category-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.product-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(min-width:900px){.category-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.product-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
 </style>
 </head>
 <body>
 <header>
-<h1>Pretyy Finds In</h1>
-<p>Discover your next favourite — thoughtful finds for everyday life.</p>
-<nav><a href="#fashion">Fashion &amp; Clothing</a><a href="#about">About</a></nav>
+  <h1>Pretyy Finds In</h1>
+  <p>Find something pretty for every part of your life</p>
 </header>
 <main>
-<p class="intro">Explore wearable styles and everyday fashion finds. Check product details, sizes, availability and delivery information on the seller's page before purchasing.</p>
-<section id="fashion">
-<h2>Fashion &amp; Clothing</h2>
-<div class="product-grid">
-<article class="card">
-<img src="fashion-white-lace-top.jpg" alt="White short-sleeve ribbed crop top with lace square neckline" loading="lazy">
-<div class="card-body">
-<h3>White Lace-Neck Short-Sleeve Top</h3>
-<p>A simple white top with a square lace-trim neckline. Check available sizes, colours and current price on Meesho.</p>
-<a class="btn" href="https://www.meesho.com/af_invite/96450343:instagram_stories:9587738?p_id=972293309&ext_id=g2vmbh&utm_source=instagram_stories" target="_blank" rel="sponsored noopener noreferrer">View Product</a>
-</div>
-</article>
-<article class="card">
-<img src="fashion-navy-active-tee.jpg" alt="Navy blue short-sleeve T-shirt with white trim and graphic lettering" loading="lazy">
-<div class="card-body">
-<h3>Navy Blue Graphic Short-Sleeve T-Shirt</h3>
-<p>A navy blue T-shirt with contrast white neckline and sleeve trim. Check available sizes, colours and current price on Meesho.</p>
-<a class="btn" href="https://www.meesho.com/af_invite/96450343:youtube_long_form:9587221?p_id=505165142&ext_id=8crfx2&utm_source=youtube_long_form" target="_blank" rel="sponsored noopener noreferrer">View Product</a>
-</div>
-</article>
-<article class="card">
-<img src="fashion-red-gingham-blouse.jpg" alt="Red and white gingham blouse with square neckline, ruffled sleeves and front buttons" loading="lazy">
-<div class="card-body">
-<h3>Red Gingham Ruffle-Sleeve Blouse</h3>
-<p>A red-and-white checked blouse with a square neckline, ruffled sleeves and front buttons. Check available sizes and current price on Meesho.</p>
-<a class="btn" href="https://www.meesho.com/af_invite/96450343:instagram_stories:9586814?p_id=784284706&ext_id=cyxxya&utm_source=instagram_stories" target="_blank" rel="sponsored noopener noreferrer">View Product</a>
-</div>
-</article>
-</div>
-<p class="note">Affiliate disclosure: Some links on this website may be affiliate links. If you buy through them, we may earn a commission at no extra cost to you. Product prices and availability can change.</p>
-</section>
-<section id="about" style="margin-top:36px">
-<h2>About Pretyy Finds In</h2>
-<p>Curated product finds for everyday life. Always review the seller's listing and terms before placing an order.</p>
-</section>
+  <section aria-labelledby="category-title">
+    <h2 class="section-title" id="category-title">Shop by Category</h2>
+    <div class="category-grid" id="category-grid">
+      <button class="category active" data-category="fashion"><span class="emoji">👗</span>Fashion &amp; Clothing</button>
+      <button class="category" data-category="beauty"><span class="emoji">🧴</span>Beauty &amp; Personal Care</button>
+      <button class="category" data-category="home"><span class="emoji">🏡</span>Home &amp; Kitchen</button>
+      <button class="category" data-category="jewellery"><span class="emoji">💍</span>Jewellery &amp; Accessories</button>
+      <button class="category" data-category="bags"><span class="emoji">👜</span>Bags &amp; Footwear</button>
+      <button class="category" data-category="kids"><span class="emoji">🧸</span>Kids &amp; Baby Products</button>
+      <button class="category" data-category="gadgets"><span class="emoji">🎧</span>Gadgets &amp; Electronics</button>
+      <button class="category" data-category="daily"><span class="emoji">🛍️</span>Everyday Essentials</button>
+    </div>
+  </section>
+
+  <section id="products-section" aria-live="polite">
+    <div class="products-heading">
+      <h2 id="products-title">Fashion &amp; Clothing</h2>
+      <button id="back-button" type="button">All categories ↑</button>
+    </div>
+    <div class="product-grid" id="product-grid">
+      <article class="product">
+        <img src="fashion-white-lace-top.jpg" alt="White ribbed top with lace neckline" loading="lazy">
+        <div class="product-info"><h3>White Lace-Neck Top</h3><a class="shop-link" href="https://www.meesho.com/af_invite/96450343:instagram_stories:9587738?p_id=972293309&amp;ext_id=g2vmbh&amp;utm_source=instagram_stories" target="_blank" rel="noopener noreferrer">View on Meesho</a></div>
+      </article>
+      <article class="product">
+        <img src="fashion-navy-active-tee.jpg" alt="Navy blue graphic T-shirt" loading="lazy">
+        <div class="product-info"><h3>Navy Blue Graphic T-Shirt</h3><a class="shop-link" href="https://www.meesho.com/af_invite/96450343:youtube_long_form:9587221?p_id=505165142&amp;ext_id=8crfx2&amp;utm_source=youtube_long_form" target="_blank" rel="noopener noreferrer">View on Meesho</a></div>
+      </article>
+      <article class="product">
+        <img src="fashion-red-gingham-blouse.jpg" alt="Red and white gingham blouse with ruffle sleeves" loading="lazy">
+        <div class="product-info"><h3>Red Gingham Ruffle-Sleeve Blouse</h3><a class="shop-link" href="https://www.meesho.com/af_invite/96450343:instagram_stories:9586814?p_id=784284706&amp;ext_id=cyxxya&amp;utm_source=instagram_stories" target="_blank" rel="noopener noreferrer">View on Meesho</a></div>
+      </article>
+    </div>
+  </section>
 </main>
-<footer>Pretyy Finds In · Fashion finds for everyday life</footer>
+<footer>Pretyy Finds In · Affiliate links may earn a commission.</footer>
+<script>
+const products = {
+  fashion: {
+    title: "Fashion & Clothing",
+    html: document.getElementById("product-grid").innerHTML
+  },
+  beauty: {title:"Beauty & Personal Care", message:"Beauty and personal-care finds will be added here soon."},
+  home: {title:"Home & Kitchen", message:"Home and kitchen finds will be added here soon."},
+  jewellery: {title:"Jewellery & Accessories", message:"Jewellery and accessories will be added here soon."},
+  bags: {title:"Bags & Footwear", message:"Bags and footwear will be added here soon."},
+  kids: {title:"Kids & Baby Products", message:"Kids and baby products will be added here soon."},
+  gadgets: {title:"Gadgets & Electronics", message:"Gadgets and electronics will be added here soon."},
+  daily: {title:"Everyday Essentials", message:"Everyday essentials will be added here soon."}
+};
+const buttons = document.querySelectorAll(".category");
+const title = document.getElementById("products-title");
+const grid = document.getElementById("product-grid");
+function showCategory(key, scroll=true) {
+  const item = products[key];
+  if (!item) return;
+  title.textContent = item.title;
+  grid.innerHTML = item.html || '<div class="empty" style="grid-column:1/-1">'+item.message+'</div>';
+  buttons.forEach(btn => btn.classList.toggle("active", btn.dataset.category === key));
+  if (scroll && window.innerWidth < 650) document.getElementById("products-section").scrollIntoView({behavior:"smooth",block:"start"});
+}
+buttons.forEach(btn => btn.addEventListener("click", () => showCategory(btn.dataset.category)));
+document.getElementById("back-button").addEventListener("click", () => {
+  document.getElementById("category-title").scrollIntoView({behavior:"smooth",block:"start"});
+});
+</script>
 </body>
 </html>
