@@ -1,127 +1,313 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pretyy Finds In</title>
-<meta name="description" content="Find something pretty for every part of your life at Pretyy Finds In.">
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pretyy Finds In</title><meta name="description" content="Find something pretty for every part of your life at Pretyy Finds In.">
 <style>
 :root{--pink:#f7dce7;--deep:#8d345c;--cream:#fffaf7;--ink:#2d2430;--muted:#766b76}
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--cream);color:var(--ink)}
-header{text-align:center;padding:28px 16px 24px;background:linear-gradient(135deg,#f8e4ec,#fff4ed)}
-header h1{margin:0;color:var(--deep);font-size:clamp(28px,6vw,42px)}
-header p{margin:9px 0 0;color:#5f515b}
-main{max-width:1100px;margin:auto;padding:22px 14px 44px}
-.section-title{text-align:center;margin:8px 0 18px;font-size:23px}
-.category-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.category{border:1px solid #ead6df;background:#fff;border-radius:15px;padding:18px 10px;text-align:center;cursor:pointer;color:var(--ink);font-size:15px;font-weight:700;min-height:96px;box-shadow:0 3px 12px #55223a0b;transition:.15s}
-.category .emoji{display:block;font-size:27px;margin-bottom:8px}
-.category:hover,.category.active{background:var(--pink);border-color:#d8a3ba;transform:translateY(-1px)}
-#products-section{margin-top:34px;scroll-margin-top:12px}
-.products-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
-.products-heading h2{margin:0;font-size:23px}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--cream);color:var(--ink)}
+header{text-align:center;padding:28px 16px 24px;background:linear-gradient(135deg,#f8e4ec,#fff4ed)}header h1{margin:0;color:var(--deep);font-size:clamp(28px,6vw,42px)}header p{margin:9px 0 0;color:#5f515b}
+main{max-width:1100px;margin:auto;padding:22px 14px 44px}.section-title{text-align:center;margin:8px 0 18px;font-size:23px}
+.category-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.category{border:1px solid #ead6df;background:#fff;border-radius:15px;padding:18px 10px;text-align:center;cursor:pointer;color:var(--ink);font-size:15px;font-weight:700;min-height:96px;box-shadow:0 3px 12px #55223a0b}
+.category .emoji{display:block;font-size:27px;margin-bottom:8px}.category:hover,.category.active{background:var(--pink);border-color:#d8a3ba;transform:translateY(-1px)}
+#products-section{margin-top:34px;scroll-margin-top:12px}.products-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}.products-heading h2{margin:0;font-size:23px}
 #back-button{border:0;background:#f0e4ea;color:var(--deep);border-radius:20px;padding:9px 14px;font-weight:700;cursor:pointer}
-.product-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:17px}
-.product{background:#fff;border:1px solid #eee1e7;border-radius:15px;overflow:hidden;box-shadow:0 4px 14px #55223a0b}
-.product img{display:block;width:100%;aspect-ratio:4/5;object-fit:contain;background:#fff}
-.product-info{padding:12px}
-.product h3{font-size:15px;line-height:1.35;margin:0 0 10px}
+.product-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:17px}.product{background:#fff;border:1px solid #eee1e7;border-radius:15px;overflow:hidden;box-shadow:0 4px 14px #55223a0b}
+.product img{display:block;width:100%;aspect-ratio:4/5;object-fit:contain;background:#fff}.product-info{padding:12px}.product h3{font-size:15px;line-height:1.35;margin:0 0 10px}
 .shop-link{display:block;text-align:center;background:var(--deep);color:#fff;text-decoration:none;padding:10px 8px;border-radius:9px;font-weight:700;font-size:14px}
 .empty{background:#fff;border:1px dashed #d9b8c7;border-radius:14px;padding:24px 16px;text-align:center;color:var(--muted);line-height:1.5;margin-top:16px}
 footer{text-align:center;padding:20px;color:var(--muted);font-size:13px}
 @media(min-width:650px){.category-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.product-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(min-width:900px){.category-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.product-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
-</style>
-</head>
-<body>
-<header>
-  <h1>Pretyy Finds In</h1>
-  <p>Find something pretty for every part of your life</p>
-</header>
-<main>
-  <section aria-labelledby="category-title">
-    <h2 class="section-title" id="category-title">Shop by Category</h2>
-    <div class="category-grid" id="category-grid">
-      <button class="category active" data-category="fashion"><span class="emoji">👗</span>Fashion &amp; Clothing</button>
-      <button class="category" data-category="beauty"><span class="emoji">🧴</span>Beauty &amp; Personal Care</button>
-      <button class="category" data-category="home"><span class="emoji">🏡</span>Home &amp; Kitchen</button>
-      <button class="category" data-category="jewellery"><span class="emoji">💍</span>Jewellery &amp; Accessories</button>
-      <button class="category" data-category="bags"><span class="emoji">👜</span>Bags &amp; Footwear</button>
-      <button class="category" data-category="kids"><span class="emoji">🧸</span>Kids &amp; Baby Products</button>
-      <button class="category" data-category="gadgets"><span class="emoji">🎧</span>Gadgets &amp; Electronics</button>
-      <button class="category" data-category="daily"><span class="emoji">🛍️</span>Everyday Essentials</button>
-    </div>
-  </section>
-  <section id="products-section" aria-live="polite">
-    <div class="products-heading">
-      <h2 id="products-title">Fashion &amp; Clothing</h2>
-      <button id="back-button" type="button">All categories ↑</button>
-    </div>
-    <div class="product-grid" id="product-grid">
+</style></head><body>
+<header><h1>Pretyy Finds In</h1><p>Find something pretty for every part of your life</p></header><main>
+<section aria-labelledby="category-title"><h2 class="section-title" id="category-title">Shop by Category</h2><div class="category-grid" id="category-grid">
+<button class="category active" data-category="fashion"><span class="emoji">👗</span>Fashion &amp; Clothing</button>
+<button class="category" data-category="beauty"><span class="emoji">🧴</span>Beauty &amp; Personal Care</button>
+<button class="category" data-category="home"><span class="emoji">🏡</span>Home &amp; Kitchen</button>
+<button class="category" data-category="jewellery"><span class="emoji">💍</span>Jewellery &amp; Accessories</button>
+<button class="category" data-category="bags"><span class="emoji">👜</span>Bags &amp; Footwear</button>
+<button class="category" data-category="kids"><span class="emoji">🧸</span>Kids &amp; Baby Products</button>
+<button class="category" data-category="gadgets"><span class="emoji">🎧</span>Gadgets &amp; Electronics</button>
+<button class="category" data-category="daily"><span class="emoji">🛍️</span>Everyday Essentials</button></div></section>
+<section id="products-section" aria-live="polite"><div class="products-heading"><h2 id="products-title">Fashion &amp; Clothing</h2><button id="back-button" type="button">All categories ↑</button></div>
+<div class="product-grid" id="product-grid">
+<article class="product">
+<img src="fashion-white-lace-top.jpg" alt="White ribbed top with lace neckline" loading="lazy">
+<div class="product-info"><h3>White Lace-Neck Top</h3><a class="shop-link" href="https://www.meesho.com/af_invite/96450343:instagram_stories:9587738?p_id=972293309&amp;ext_id=g2vmbh&amp;utm_source=instagram_stories" target="_blank" rel="noopener noreferrer">View on Meesho</a></div>
+</article>
+<article class="product">
+<img src="fashion-navy-active-tee.jpg" alt="Navy blue graphic T-shirt" loading="lazy">
+<div class="product-info"><h3>Navy Blue Graphic T-Shirt</h3><a class="shop-link" href="https://www.meesho.com/af_invite/96450343:youtube_long_form:9587221?p_id=505165142&amp;ext_id=8crfx2&amp;utm_source=youtube_long_form" target="_blank" rel="noopener noreferrer">View on Meesho</a></div>
+</article>
+<article class="product">
+<img src="fashion-red-gingham-blouse.jpg" alt="Red and white gingham blouse with ruffle sleeves" loading="lazy">
+<div class="product-info"><h3>Red Gingham Ruffle-Sleeve Blouse</h3><a class="shop-link" href="https://www.meesho.com/af_invite/96450343:instagram_stories:9586814?p_id=784284706&amp;ext_id=cyxxya&amp;utm_source=instagram_stories" target="_blank" rel="noopener noreferrer">View on Meesho</a></div>
+</article>
+<article class="product">
+<img src="fashion-black-lace-vneck-top.jpg" alt="Black ribbed V-neck long-sleeve top with lace detail" loading="lazy">
+<div class="product-info"><h3>Black Lace-Detail V-Neck Top</h3><a class="shop-link" href="https://www.meesho.com/af_invite/96450343:facebook:9585810?p_id=906727485&amp;ext_id=ezubel&amp;utm_source=facebook" target="_blank" rel="noopener noreferrer">View on Meesho</a></div>
+</article>
+<article class="product">
+<img src="fashion-grey-lace-detail-top.jpg" alt="Grey ribbed long-sleeve V-neck top with white lace detail" loading="lazy">
+<div class="product-info"><h3>Grey Lace-Detail Top</h3><a class="shop-link" href="https://www.meesho.com/af_invite/96450343:instagram_stories:9588123?p_id=907723759&amp;ext_id=f0fo4v&amp;utm_source=instagram_stories" target="_blank" rel="noopener noreferrer">View on Meesho</a></div>
+</article>
+<article class="product">
+<img src="fashion-white-lips-graphic-tee.jpg" alt="White short-sleeve T-shirt with black lips graphic" loading="lazy">
+<div class="product-info"><h3>White Lips Graphic Tee</h3><a class="shop-link" href="https://www.meesho.com/af_invite/96450343:instagram_stories:9588561?p_id=477539057&amp;ext_id=7wbbht&amp;utm_source=instagram_stories" target="_blank" rel="noopener noreferrer">View on Meesho</a></div>
+</article>
+<article class="product">
+<img src="fashion-navy-henley-top.jpg" alt="Navy blue long-sleeve Henley top with buttons" loading="lazy">
+<div class="product-info"><h3>Navy Blue Henley Top</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTU4ODg1Nzo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View on Meesho</a></div>
+</article>
+<article class="product">
+<img src="fashion-white-blue-flower-tee.jpg" alt="White short-sleeve T-shirt with blue flower graphic" loading="lazy">
+<div class="product-info"><h3>Blue Floral Graphic Tee</h3><a class="shop-link" href="https://www.meesho.com/af_invite/96450343:youtube_long_form:9584485?p_id=541876182&amp;ext_id=8ymac6&amp;utm_source=youtube_long_form" target="_blank" rel="noopener noreferrer">View on Meesho</a></div>
+</article>
+<article class="product">
+<img src="fashion-yellow-sleeveless-top.jpg" alt="Yellow sleeveless top with wide shoulder straps" loading="lazy">
+<div class="product-info"><h3>Yellow Sleeveless Top</h3><a class="shop-link" href="https://www.meesho.com/af_invite/96450343:instagram_stories:9579521?p_id=1062846979&amp;ext_id=hkshz7&amp;utm_source=instagram_stories" target="_blank" rel="noopener noreferrer">View on Meesho</a></div>
+</article>
+<article class="product">
+<img src="fashion-burgundy-long-sleeve-henley.jpg" alt="Burgundy Long-Sleeve Henley Top" loading="lazy">
+<div class="product-info"><h3>Burgundy Long-Sleeve Henley Top</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View on Meesho</a></div>
+</article>
+<article class="product">
+<img src="fashion-gingham-ruffle-dress.jpg" alt="Black and White Gingham Ruffle Dress" loading="lazy">
+<div class="product-info"><h3>Black and White Gingham Ruffle Dress</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View on Meesho</a></div>
+</article>
+<article class="product">
+<img src="fashion-burgundy-square-neck-top.jpg" alt="Burgundy Square-Neck Top" loading="lazy">
+<div class="product-info"><h3>Burgundy Square-Neck Top</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View on Meesho</a></div>
+</article>
+<article class="product">
+<img src="fashion-burgundy-striped-vneck-top.jpg" alt="Burgundy Striped V-Neck Top" loading="lazy">
+<div class="product-info"><h3>Burgundy Striped V-Neck Top</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View on Meesho</a></div>
+</article>
+<article class="product">
+<img src="fashion-black-ruffle-sleeveless-top.jpg" alt="Black Ruffle-Sleeve Top" loading="lazy">
+<div class="product-info"><h3>Black Ruffle-Sleeve Top</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View on Meesho</a></div>
+</article>
+<article class="product">
+<img src="fashion-black-long-sleeve-henley.jpg" alt="Black Long-Sleeve Henley Top" loading="lazy">
+<div class="product-info"><h3>Black Long-Sleeve Henley Top</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View on Meesho</a></div>
+</article>
+<article class="product">
+<img src="fashion-white-scallop-crop-top.jpg" alt="White Scalloped Crop Top" loading="lazy">
+<div class="product-info"><h3>White Scalloped Crop Top</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View on Meesho</a></div>
+</article>
+<article class="product">
+<img src="fashion-black-zip-halter-top.jpg" alt="Black Zip-Front Halter Top" loading="lazy">
+<div class="product-info"><h3>Black Zip-Front Halter Top</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View on Meesho</a></div>
+</article>
+<article class="product">
+<img src="fashion-navy-lace-halter-top.jpg" alt="Navy Top with Lace Halter Detail" loading="lazy">
+<div class="product-info"><h3>Navy Top with Lace Halter Detail</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View on Meesho</a></div>
+</article>
+<article class="product">
+<img src="fashion-black-rose-cardigan-top.jpg" alt="Black Rose-Detail Cardigan Top" loading="lazy">
+<div class="product-info"><h3>Black Rose-Detail Cardigan Top</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View on Meesho</a></div>
+</article>
+<article class="product">
+<img src="fashion-burgundy-ruched-top.jpg" alt="Burgundy Ruched Top with Sheer Sleeves" loading="lazy">
+<div class="product-info"><h3>Burgundy Ruched Top with Sheer Sleeves</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View on Meesho</a></div>
+</article>
+<article class="product">
+<img src="fashion-cream-flared-sleeve-top.jpg" alt="Cream Top with Flared Sleeves" loading="lazy">
+<div class="product-info"><h3>Cream Top with Flared Sleeves</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View on Meesho</a></div>
+</article>
       <article class="product">
-        <img src="fashion-white-lace-top.jpg" alt="White ribbed top with lace neckline" loading="lazy">
-        <div class="product-info"><h3>White Lace-Neck Top</h3><a class="shop-link" href="https://www.meesho.com/af_invite/96450343:instagram_stories:9587738?p_id=972293309&amp;ext_id=g2vmbh&amp;utm_source=instagram_stories" target="_blank" rel="noopener noreferrer">View on Meesho</a></div>
+        <img src="blue-pinstripe-bow-peplum-top.jpg" alt="Blue pinstripe sleeveless peplum top with bows" loading="lazy">
+        <div class="product-info"><h3>Blue Pinstripe Bow Peplum Top</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View collection on Meesho</a></div>
       </article>
       <article class="product">
-        <img src="fashion-navy-active-tee.jpg" alt="Navy blue graphic T-shirt" loading="lazy">
-        <div class="product-info"><h3>Navy Blue Graphic T-Shirt</h3><a class="shop-link" href="https://www.meesho.com/af_invite/96450343:youtube_long_form:9587221?p_id=505165142&amp;ext_id=8crfx2&amp;utm_source=youtube_long_form" target="_blank" rel="noopener noreferrer">View on Meesho</a></div>
+        <img src="black-white-collar-sweater.jpg" alt="Black ribbed sweater with white collar and cuffs" loading="lazy">
+        <div class="product-info"><h3>Black Sweater with White Collar</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View collection on Meesho</a></div>
       </article>
       <article class="product">
-        <img src="fashion-red-gingham-blouse.jpg" alt="Red and white gingham blouse with ruffle sleeves" loading="lazy">
-        <div class="product-info"><h3>Red Gingham Ruffle-Sleeve Blouse</h3><a class="shop-link" href="https://www.meesho.com/af_invite/96450343:instagram_stories:9586814?p_id=784284706&amp;ext_id=cyxxya&amp;utm_source=instagram_stories" target="_blank" rel="noopener noreferrer">View on Meesho</a></div>
+        <img src="pink-gingham-halter-dress.jpg" alt="Pink gingham halter dress" loading="lazy">
+        <div class="product-info"><h3>Pink Gingham Halter Dress</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View collection on Meesho</a></div>
       </article>
       <article class="product">
-        <img src="fashion-black-lace-vneck-top.jpg" alt="Black ribbed V-neck long-sleeve top with lace detail" loading="lazy">
-        <div class="product-info"><h3>Black Lace-Detail V-Neck Top</h3><a class="shop-link" href="https://www.meesho.com/af_invite/96450343:facebook:9585810?p_id=906727485&amp;ext_id=ezubel&amp;utm_source=facebook" target="_blank" rel="noopener noreferrer">View on Meesho</a></div>
+        <img src="blue-gingham-puff-sleeve-blouse.jpg" alt="Blue gingham blouse with rounded collar and puff sleeves" loading="lazy">
+        <div class="product-info"><h3>Blue Gingham Puff-Sleeve Blouse</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View collection on Meesho</a></div>
       </article>
       <article class="product">
-        <img src="fashion-grey-lace-detail-top.jpg" alt="Grey ribbed long-sleeve V-neck top with white lace detail" loading="lazy">
-        <div class="product-info"><h3>Grey Lace-Detail Top</h3><a class="shop-link" href="https://www.meesho.com/af_invite/96450343:instagram_stories:9588123?p_id=907723759&amp;ext_id=f0fo4v&amp;utm_source=instagram_stories" target="_blank" rel="noopener noreferrer">View on Meesho</a></div>
+        <img src="pink-rose-print-ruched-top.jpg" alt="Pink long-sleeve top with rose print" loading="lazy">
+        <div class="product-info"><h3>Pink Rose-Print Ruched Top</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View collection on Meesho</a></div>
       </article>
       <article class="product">
-        <img src="fashion-white-lips-graphic-tee.jpg" alt="White short-sleeve T-shirt with black lips graphic" loading="lazy">
-        <div class="product-info"><h3>White Lips Graphic Tee</h3><a class="shop-link" href="https://www.meesho.com/af_invite/96450343:instagram_stories:9588561?p_id=477539057&amp;ext_id=7wbbht&amp;utm_source=instagram_stories" target="_blank" rel="noopener noreferrer">View on Meesho</a></div>
+        <img src="blue-floral-corset-blouse.jpg" alt="Blue floral blouse with white puff sleeves" loading="lazy">
+        <div class="product-info"><h3>Blue Floral Corset Blouse</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View collection on Meesho</a></div>
       </article>
       <article class="product">
-        <img src="fashion-navy-henley-top.jpg" alt="Navy blue long-sleeve Henley top with buttons" loading="lazy">
-        <div class="product-info"><h3>Navy Blue Henley Top</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTU4ODg1Nzo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View on Meesho</a></div>
+        <img src="white-bow-cardigan-top.jpg" alt="White cardigan top with burgundy bows" loading="lazy">
+        <div class="product-info"><h3>White Bow-Detail Cardigan Top</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View collection on Meesho</a></div>
       </article>
       <article class="product">
-        <img src="fashion-white-blue-flower-tee.jpg" alt="White short-sleeve T-shirt with blue flower graphic" loading="lazy">
-        <div class="product-info"><h3>Blue Floral Graphic Tee</h3><a class="shop-link" href="https://www.meesho.com/af_invite/96450343:youtube_long_form:9584485?p_id=541876182&amp;ext_id=8ymac6&amp;utm_source=youtube_long_form" target="_blank" rel="noopener noreferrer">View on Meesho</a></div>
+        <img src="pink-history-raglan-top.jpg" alt="Pink and black raglan long-sleeve graphic top" loading="lazy">
+        <div class="product-info"><h3>Pink History Graphic Raglan Top</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View collection on Meesho</a></div>
       </article>
       <article class="product">
-        <img src="fashion-yellow-sleeveless-top.jpg" alt="Yellow sleeveless top with wide shoulder straps" loading="lazy">
-        <div class="product-info"><h3>Yellow Sleeveless Top</h3><a class="shop-link" href="https://www.meesho.com/af_invite/96450343:instagram_stories:9579521?p_id=1062846979&amp;ext_id=hkshz7&amp;utm_source=instagram_stories" target="_blank" rel="noopener noreferrer">View on Meesho</a></div>
+        <img src="cream-black-collar-top.jpg" alt="Cream ribbed long-sleeve top with black collar" loading="lazy">
+        <div class="product-info"><h3>Cream Top with Black Collar</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View collection on Meesho</a></div>
       </article>
-    </div>
-  </section>
-</main>
-<footer>Pretyy Finds In · Affiliate links may earn a commission.</footer>
+      <article class="product">
+        <img src="purple-ruched-peplum-top.jpg" alt="Purple long-sleeve ruched peplum top" loading="lazy">
+        <div class="product-info"><h3>Purple Ruched Peplum Top</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View collection on Meesho</a></div>
+      </article>
+      <article class="product">
+        <img src="black-gingham-collar-blouse.jpg" alt="Black and white gingham blouse with large collar" loading="lazy">
+        <div class="product-info"><h3>Black Gingham Peter Pan Collar Blouse</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View collection on Meesho</a></div>
+      </article>
+      <article class="product">
+        <img src="brown-gingham-collar-blouse.jpg" alt="Brown gingham blouse with large collar" loading="lazy">
+        <div class="product-info"><h3>Brown Gingham Peter Pan Collar Blouse</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View collection on Meesho</a></div>
+      </article>
+      <article class="product">
+        <img src="olive-halter-bow-top.jpg" alt="Olive halter top with bows" loading="lazy">
+        <div class="product-info"><h3>Olive Halter Bow Top</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View collection on Meesho</a></div>
+      </article>
+      <article class="product">
+        <img src="black-asymmetric-strap-top.jpg" alt="Black fitted top with asymmetric straps" loading="lazy">
+        <div class="product-info"><h3>Black Asymmetric Strap Top</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View collection on Meesho</a></div>
+      </article>
+      <article class="product">
+        <img src="black-white-bow-halter-top.jpg" alt="Black halter top with white bow" loading="lazy">
+        <div class="product-info"><h3>Black Halter Top with White Bow</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View collection on Meesho</a></div>
+      </article>
+      <article class="product">
+        <img src="pink-halter-bow-top.jpg" alt="Pink halter top with bows" loading="lazy">
+        <div class="product-info"><h3>Pink Halter Bow Top</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View collection on Meesho</a></div>
+      </article>
+      <article class="product">
+        <img src="black-button-ribbed-top.jpg" alt="Black short-sleeve ribbed top with buttons" loading="lazy">
+        <div class="product-info"><h3>Black Button-Front Ribbed Top</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View collection on Meesho</a></div>
+      </article>
+      <article class="product">
+        <img src="blue-floral-halter-top.jpg" alt="Blue and white floral halter top" loading="lazy">
+        <div class="product-info"><h3>Blue Floral Halter Top</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View collection on Meesho</a></div>
+      </article>
+      <article class="product">
+        <img src="black-gold-detail-bandeau-top.jpg" alt="Black bandeau top with gold detail" loading="lazy">
+        <div class="product-info"><h3>Black Bandeau Top with Gold Detail</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View collection on Meesho</a></div>
+      </article>
+      <article class="product">
+        <img src="black-embroidered-vest.jpg" alt="Black sleeveless vest with white floral embroidery" loading="lazy">
+        <div class="product-info"><h3>Black Embroidered Sleeveless Vest</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View collection on Meesho</a></div>
+      </article>
+      <article class="product">
+        <img src="brown-short-sleeve-henley.jpg" alt="Brown ribbed short-sleeve Henley top" loading="lazy">
+        <div class="product-info"><h3>Brown Short-Sleeve Henley Top</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View collection on Meesho</a></div>
+      </article>
+      <article class="product">
+        <img src="teal-contrast-trim-tank.jpg" alt="Teal tank top with cream trim" loading="lazy">
+        <div class="product-info"><h3>Teal Tank Top with Contrast Trim</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View collection on Meesho</a></div>
+      </article>
+      <article class="product">
+        <img src="black-spider-cold-shoulder-top.jpg" alt="Black cold-shoulder long-sleeve top with spider graphic" loading="lazy">
+        <div class="product-info"><h3>Black Spider Graphic Cold-Shoulder Top</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View collection on Meesho</a></div>
+      </article>
+      <article class="product">
+        <img src="burgundy-long-sleeve-henley-top.jpg" alt="Burgundy ribbed long-sleeve Henley top" loading="lazy">
+        <div class="product-info"><h3>Burgundy Long-Sleeve Henley Top</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View collection on Meesho</a></div>
+      </article>
+      <article class="product">
+        <img src="cream-bell-sleeve-crop-top.jpg" alt="Cream ribbed crop top with bell sleeves" loading="lazy">
+        <div class="product-info"><h3>Cream Bell-Sleeve Crop Top</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View collection on Meesho</a></div>
+      </article>
+      <article class="product">
+        <img src="white-graphic-halter-crop-top.jpg" alt="White long-sleeve crop top with graphic and halter neckline" loading="lazy">
+        <div class="product-info"><h3>White Graphic Halter Crop Top</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View collection on Meesho</a></div>
+      </article>
+      <article class="product">
+        <img src="navy-lace-vneck-top.jpg" alt="Navy ribbed top with white lace detail" loading="lazy">
+        <div class="product-info"><h3>Navy Lace-Detail V-Neck Top</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View collection on Meesho</a></div>
+      </article>
+      <article class="product">
+        <img src="red-flared-sleeve-ruched-top.jpg" alt="Red ruched top with flared sleeves" loading="lazy">
+        <div class="product-info"><h3>Red Flared-Sleeve Ruched Top</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View collection on Meesho</a></div>
+      </article>
+      <article class="product">
+        <img src="pink-flared-sleeve-wrap-top.jpg" alt="Pink ribbed wrap-style top with flared sleeves" loading="lazy">
+        <div class="product-info"><h3>Pink Flared-Sleeve Wrap Top</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View collection on Meesho</a></div>
+      </article>
+      <article class="product">
+        <img src="black-white-striped-polo-top.jpg" alt="White long-sleeve top with black horizontal stripes and collar" loading="lazy">
+        <div class="product-info"><h3>Black and White Striped Polo Top</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View collection on Meesho</a></div>
+      </article>
+      <article class="product">
+        <img src="burgundy-lace-square-neck-top.jpg" alt="Burgundy long-sleeve top with white lace panel" loading="lazy">
+        <div class="product-info"><h3>Burgundy Lace-Panel Square-Neck Top</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View collection on Meesho</a></div>
+      </article>
+      <article class="product">
+        <img src="pink-ribbed-collared-top.jpg" alt="Pink ribbed long-sleeve collared top" loading="lazy">
+        <div class="product-info"><h3>Pink Ribbed Collared Top</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View collection on Meesho</a></div>
+      </article>
+      <article class="product">
+        <img src="blue-lace-trim-crop-top.jpg" alt="Light blue long-sleeve crop top with white lace trim" loading="lazy">
+        <div class="product-info"><h3>Blue Lace-Trim Crop Top</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View collection on Meesho</a></div>
+      </article>
+      <article class="product">
+        <img src="black-scalloped-bow-crop-top.jpg" alt="Black long-sleeve crop top with scalloped panels and bow" loading="lazy">
+        <div class="product-info"><h3>Black Scalloped Bow Crop Top</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View collection on Meesho</a></div>
+      </article>
+      <article class="product">
+        <img src="burgundy-square-neck-long-sleeve-top.jpg" alt="Burgundy square-neck long-sleeve top" loading="lazy">
+        <div class="product-info"><h3>Burgundy Square-Neck Long-Sleeve Top</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View collection on Meesho</a></div>
+      </article>
+      <article class="product">
+        <img src="rust-square-neck-ribbed-top.jpg" alt="Rust ribbed square-neck long-sleeve top" loading="lazy">
+        <div class="product-info"><h3>Rust Square-Neck Ribbed Top</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View collection on Meesho</a></div>
+      </article>
+      <article class="product">
+        <img src="white-ruffle-sleeve-peplum-top.jpg" alt="White lace peplum top with ruffle sleeves" loading="lazy">
+        <div class="product-info"><h3>White Ruffle-Sleeve Peplum Top</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View collection on Meesho</a></div>
+      </article>
+      <article class="product">
+        <img src="black-sheer-sleeve-crop-top.jpg" alt="Black crop top with sheer long sleeves" loading="lazy">
+        <div class="product-info"><h3>Black Sheer-Sleeve Crop Top</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View collection on Meesho</a></div>
+      </article>
+      <article class="product">
+        <img src="black-structured-corset-top.jpg" alt="Black long-sleeve structured corset-style top" loading="lazy">
+        <div class="product-info"><h3>Black Structured Corset Top</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View collection on Meesho</a></div>
+      </article>
+      <article class="product">
+        <img src="black-sheer-puff-sleeve-blouse.jpg" alt="Black blouse with sheer puff sleeves" loading="lazy">
+        <div class="product-info"><h3>Black Sheer Puff-Sleeve Blouse</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View collection on Meesho</a></div>
+      </article>
+
+<article class="product">
+<img src="brown-collar-sleeveless-top.jpg" alt="Brown sleeveless collared top" loading="lazy">
+<div class="product-info"><h3>Brown sleeveless collared top</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View collection on Meesho</a></div>
+</article>
+<article class="product">
+<img src="black-white-dream-tunnel-tee.jpg" alt="Black and white graphic raglan tee" loading="lazy">
+<div class="product-info"><h3>Black and white graphic raglan tee</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View collection on Meesho</a></div>
+</article>
+<article class="product">
+<img src="brown-cream-dream-tunnel-tee.jpg" alt="Brown and cream graphic raglan tee" loading="lazy">
+<div class="product-info"><h3>Brown and cream graphic raglan tee</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View collection on Meesho</a></div>
+</article>
+<article class="product">
+<img src="blue-monterey-graphic-tee.jpg" alt="Blue Monterey 76 graphic T-shirt" loading="lazy">
+<div class="product-info"><h3>Blue Monterey 76 graphic T-shirt</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View collection on Meesho</a></div>
+</article>
+<article class="product">
+<img src="sage-green-ruched-long-sleeve-top.jpg" alt="Sage green ruched long-sleeve top" loading="lazy">
+<div class="product-info"><h3>Sage green ruched long-sleeve top</h3><a class="shop-link" href="https://affiliate.meesho.com/collection/OTc4OTQ0Njo6Ojo6Om5vcm1hbA==" target="_blank" rel="noopener noreferrer">View collection on Meesho</a></div>
+</article>
+</div></section></main><footer>Pretyy Finds In · Affiliate links may earn a commission.</footer>
 <script>
-const products = {
-  fashion: {title:"Fashion & Clothing", html:document.getElementById("product-grid").innerHTML},
-  beauty:{title:"Beauty & Personal Care",message:"Beauty and personal-care finds will be added here soon."},
-  home:{title:"Home & Kitchen",message:"Home and kitchen finds will be added here soon."},
-  jewellery:{title:"Jewellery & Accessories",message:"Jewellery and accessories will be added here soon."},
-  bags:{title:"Bags & Footwear",message:"Bags and footwear will be added here soon."},
-  kids:{title:"Kids & Baby Products",message:"Kids and baby products will be added here soon."},
-  gadgets:{title:"Gadgets & Electronics",message:"Gadgets and electronics will be added here soon."},
-  daily:{title:"Everyday Essentials",message:"Everyday essentials will be added here soon."}
-};
-const buttons=document.querySelectorAll(".category");
-const title=document.getElementById("products-title");
-const grid=document.getElementById("product-grid");
-function showCategory(key,scroll=true){
- const item=products[key];if(!item)return;
- title.textContent=item.title;
- grid.innerHTML=item.html||'<div class="empty" style="grid-column:1/-1">'+item.message+'</div>';
- buttons.forEach(btn=>btn.classList.toggle("active",btn.dataset.category===key));
- if(scroll&&window.innerWidth<650)document.getElementById("products-section").scrollIntoView({behavior:"smooth",block:"start"});
-}
+const fashionHTML=document.getElementById("product-grid").innerHTML;
+const products={fashion:{title:"Fashion & Clothing",html:fashionHTML},
+beauty:{title:"Beauty & Personal Care",message:"Beauty and personal-care finds will be added here soon."},
+home:{title:"Home & Kitchen",message:"Home and kitchen finds will be added here soon."},
+jewellery:{title:"Jewellery & Accessories",message:"Jewellery and accessories will be added here soon."},
+bags:{title:"Bags & Footwear",message:"Bags and footwear will be added here soon."},
+kids:{title:"Kids & Baby Products",message:"Kids and baby products will be added here soon."},
+gadgets:{title:"Gadgets & Electronics",message:"Gadgets and electronics will be added here soon."},
+daily:{title:"Everyday Essentials",message:"Everyday essentials will be added here soon."}};
+const buttons=document.querySelectorAll(".category"),title=document.getElementById("products-title"),grid=document.getElementById("product-grid");
+function showCategory(key,scroll=true){const item=products[key];if(!item)return;title.textContent=item.title;grid.innerHTML=item.html||'<div class="empty" style="grid-column:1/-1">'+item.message+'</div>';buttons.forEach(btn=>btn.classList.toggle("active",btn.dataset.category===key));if(scroll&&window.innerWidth<650)document.getElementById("products-section").scrollIntoView({behavior:"smooth",block:"start"});}
 buttons.forEach(btn=>btn.addEventListener("click",()=>showCategory(btn.dataset.category)));
 document.getElementById("back-button").addEventListener("click",()=>document.getElementById("category-title").scrollIntoView({behavior:"smooth",block:"start"}));
-</script>
-</body>
-</html>
+</script></body></html>
